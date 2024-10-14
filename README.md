@@ -135,6 +135,7 @@ If the `DELETE` request for a tweet fails (e.g., the tweet doesn't exist), the p
 ```go
 if resp.StatusCode != http.StatusOK {
     log.Fatalf("Error response from Twitter API: %s", resp.Status)
+    http.Error(w, "Tweet not found", http.StatusNotFound)
 }
 ```
 
